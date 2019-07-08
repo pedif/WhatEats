@@ -4,4 +4,102 @@
     <string name="radio_female">Female</string>
     <string name="text_msg">Press the guess button for the food to appear</string>
     <string name="guess">Guess</string>
+    <string-array name="foods">
+        <item>Cockroach butt cheek kebab with a side of rotten egg salad, an exquisite taste.</item>
+
+        <item>Borscht with garlic fritters from Pripyat 1986.</item>
+
+        <item>Smells like metal so I guess something atomic?!</item>
+
+        <item>Awesomeness and a huge load of it for that matter!</item>
+
+        <item>Something shitty, really brought up the flavor.</item>
+
+        <item>Too much egg, too much for me to handle, too much for the world to handle, please stop!</item>
+
+        <item>A three eyed raven steak with herbs and ummmm I dare to say rice wine?!</item>
+
+        <item>What is it? No seriously send me the name and recipe of what caused this smell.</item>
+
+        <item>A stir fried of a dump made by a clean eating vegan.</item>
+
+        <item>Goat cheese crostini with fig-olive tapenade. Tuscan white bean and roasted garlic soup.
+        Candied carrots with honey, cumin, and paprika.
+        Chopped Thai salad with peanut dressing. Roasted duck with an orange-bourbon glaze.
+            Grilled flatiron steak with rosemary potatoes. Fruit tarts and berries with champagne.</item>
+
+        <item>Meat of a cattle which hasn’t farted for almost a year.</item>
+
+        <item>Peperoni pizza which was made with a 150 years old sour dough not so carefully made
+            by a grandmother of 25 who was happily married for 57 years.</item>
+
+        <item>Remaining of a roasted one year old lamb which was served to King Arthur after his
+            victory at the Battle of Badon Hill.</item>
+
+        <item>Chicken wings coated in herbs and spices which is believed chefs used in Lion heart Richard’s
+            foods in the third crusade.</item>
+
+        <item>Hot dog made from dog of Britain’s third king.</item>
+
+        <item>Mashed potato made from left overs of potatoes used in movie Martians.</item>
+
+        <item>Chicken salad with no chicken in it.</item>
+
+        <item>Omelet made with left over foods of last week and some of the week before.</item>
+
+        <item>Crispy bacon of a divorced and angry pig.</item>
+
+        <item>Fried chicken coated in breadcrumbs of bread served to Nobunaga’s last dinner.</item>
+
+        <item>Egg salad made by some eggs stolen from a tinasaurus rex.</item>
+
+        <item>… The app is dead …</item>
+
+        <item>Guacamole made with avocados which Christopher Columbus stole
+            from a local in one of his trips to South America.</item>
+
+        <item>Meatloaf made from a source which was wrapped heavily in very
+            important army documents from year 1822!</item>
+
+        <item>Meatballs made with your neighbor’s matured house flies balls.</item>
+
+        <item>Sushi of a 137 old mermaid served with Caribbean lime and some once chewed rice.
+        Dumplings made with soy sauce which you accidentally spilled on the kitchen floor but
+        followed the 5 seconds rule and used it anyway because you are that courageous and also
+            very very dirty.</item>
+
+        <item>Masala Dosa made with interestingly left over rice of Gandhi’s dinner 5 nights
+            before his assassination.</item>
+
+        <item>Disabled Jamaican chicken foot soup.</item>
+
+        <item>Overcooked rice for at least 3 to 5 hours served with pickles on top because you
+        didn’t have anything else to eat.</item>
+
+    <item>Not so greatly cooked steak made from breast of a kangaroo who hit the gym constantly
+        and had better body aesthetics than you. Seem like you were jealous of him weren’t you?
+    </item>
+    <item> Tortilla Espanola made with a bottle of fine Chopin because you forgot you didn’t have any
+        potatoes left and insisted on making it anyways and said to yourself: well it counts as
+        potato if it is made from potato.</item>
+
+        <item>Pasta Alfredo with a couple of his mustache hair in it.</item>
+
+        <item>Peas, Chickpeas, beans and all the things you could find for this explosive incident!</item>
+
+    <item>A salad because you have started to take care of yourself and your body and also your neighbor
+        has mowed her lawn this morning.</item>
+
+    <item> A hamburger made from meat of a cow named Pete. Pete had problems coming to this world but had a
+        pretty happy and comfortable life till the time of his demise. RIP Pete March 2018 - October 2019.
+    </item>
+
+        <item>Stir fried eggs made on the rocks of Sahara desert.</item>
+
+        <item> Fish filet of one of the fishes which were captured in Nemo!</item>
+
+        <item>Water plus air because you chose it and also because you’re broke.</item>
+    </string-array>
+
 </resources>
+
