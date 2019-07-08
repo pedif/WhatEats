@@ -7,6 +7,6 @@ class Contract {
     }
 
     interface View{
-        fun guess()
+        fun guess(msg: String)
     }
 }
