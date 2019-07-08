@@ -2,7 +2,7 @@ package com.techspark.whateats
 
 class Contract {
 
-    interface presenter{
+    interface Presenter{
         fun guess()
     }
 
