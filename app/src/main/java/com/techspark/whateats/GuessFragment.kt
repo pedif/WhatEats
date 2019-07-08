@@ -16,7 +16,11 @@ class GuessFragment : Fragment(), Contract.View {
 
     lateinit var presenter: Contract.Presenter
 
+    /**
+     * Displays and reads the message to the user
+     */
      override fun guess(msg: String) {
+
     }
 
     override fun onCreateView(
