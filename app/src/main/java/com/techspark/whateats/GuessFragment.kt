@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import com.techspark.whateats.databinding.FragmentGuessBinding
 
 
 /**
@@ -28,7 +30,12 @@ class GuessFragment : Fragment(), Contract.View {
         savedInstanceState: Bundle?
     ): View? {
 
-        presenter = GuessPresenter(this)
+        presenter = GuessPresenter(this,context!!)
+
+        val binding: FragmentGuessBinding =
+            DataBindingUtil.inflate(inflater,R.layout.fragment_guess,container,false)
+        binding.lifecycleOwner = this
+        binding.presenter= presenter
         return inflater.inflate(R.layout.fragment_guess, container, false)
     }
 
