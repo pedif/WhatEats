@@ -31,7 +31,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/radioGroup" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:layout_marginTop="16dp"
                 android:layout_marginRight="16dp" android:layout_marginEnd="16dp"/>
-        <Button
+        <ImageButton
+                android:src="@mipmap/ic_launcher"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/image_button_guess"
                 app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="8dp"

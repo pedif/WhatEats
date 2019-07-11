@@ -24,6 +24,7 @@ class GuessFragment : Fragment(), Contract.View {
      */
      override fun guess(msg: String) {
 
+        text_msg.text = msg
     }
 
     override fun onCreateView(
