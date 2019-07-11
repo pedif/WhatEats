@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import com.techspark.whateats.databinding.FragmentGuessBinding
 import kotlinx.android.synthetic.main.fragment_guess.*
 import java.util.*
 
@@ -30,6 +28,8 @@ class GuessFragment : Fragment(), Contract.View {
     override fun guess(msg: String) {
 
         text_msg.text = msg
+
+        if(switch_talk.isChecked)
         read(msg)
 
     }
