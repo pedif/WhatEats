@@ -1,9 +1,10 @@
 package com.techspark.whateats
-
+import com.techspark.whateats.Contract.View
 import android.content.Context
+import android.widget.Toast
 import kotlin.random.Random
 
-class GuessPresenter (private val view: Contract.View, private val context: Context) : Contract.Presenter{
+class GuessPresenter (private val view: View, private val context: Context) : Contract.Presenter{
 
     private val foods: Array<String> = context.resources.getStringArray(R.array.foods)
 
@@ -13,7 +14,6 @@ class GuessPresenter (private val view: Contract.View, private val context: Cont
     override fun guess() {
 
         val rand = Random(System.currentTimeMillis()).nextInt(0,foods.size)
-
         view.guess(foods[rand])
     }
 }

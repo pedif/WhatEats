@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.techspark.whateats.databinding.FragmentGuessBinding
+import kotlinx.android.synthetic.main.fragment_guess.*
 
 
 /**
@@ -30,13 +31,17 @@ class GuessFragment : Fragment(), Contract.View {
         savedInstanceState: Bundle?
     ): View? {
 
+
         presenter = GuessPresenter(this,context!!)
 
-        val binding: FragmentGuessBinding =
-            DataBindingUtil.inflate(inflater,R.layout.fragment_guess,container,false)
-        binding.lifecycleOwner = this
-        binding.presenter= presenter
         return inflater.inflate(R.layout.fragment_guess, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        image_button_guess.setOnClickListener {
+            presenter.guess()
+        }
     }
 
 
