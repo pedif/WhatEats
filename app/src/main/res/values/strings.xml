@@ -106,5 +106,21 @@
 
         <item>Last seen in the garbage can behind your apartment three hours ago</item>
     </string-array>
+
+    <string-array name="formulas">
+        <item>Initializing</item>
+        <item>x\u00B3 + y\u00B2 = 27.43</item>
+        <item>i\u00B2 = -1</item>
+        <item>logxy = logx + logy</item>
+        <item>|\u00BBZ(t)| \u00BB </item>
+        <item>y\u209C + A(y)y\u2093 = 0</item>
+        <item>V - E + F = 2</item>
+        <item>a\u00B2 + b\u00B2 = c\u00B2</item>
+        <item>dS \u2265 0</item>
+        <item>\u2206P\u2206x \u2265 h/2 </item>
+        <item>E = hf</item>
+        <item>F = ma</item>
+        <item>E = mc\u00B2</item>
+    </string-array>
 </resources>
 
