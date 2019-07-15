@@ -4,6 +4,8 @@
     <string name="radio_female">Female</string>
     <string name="text_msg">Press the guess button for the food to appear</string>
     <string name="guess">Guess</string>
+    <string name="talk">Talk</string>
+    <string name="no_talk">Don\'t Talk</string>
     <string-array name="foods">
         <item>Cockroach butt cheek kebab with a side of rotten egg salad, an exquisite taste!</item>
 
@@ -99,7 +101,10 @@
         <item> Fish fillet of one of the fishes which were captured in Nemo!</item>
 
         <item>Water plus air because you chose it and also because you’re broke.</item>
-    </string-array>
 
+        <item>Something very very expensive</item>
+
+        <item>Last seen in the garbage can behind your apartment three hours ago</item>
+    </string-array>
 </resources>
 
