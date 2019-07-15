@@ -9,6 +9,12 @@
 
     <fragment
             android:id="@+id/fragment" android:layout_width="match_parent" android:layout_height="match_parent"
-    android:name="com.techspark.whateats.GuessFragment"/>
+            android:name="com.techspark.whateats.GuessFragment"/>
+    <com.google.android.gms.ads.AdView android:layout_width="wrap_content"
+                                       android:id="@+id/ad_view"
+                                       android:layout_height="wrap_content"
+                                       android:layout_gravity="bottom|center_horizontal"
+                                       app:adSize="SMART_BANNER"
+                                       app:adUnitId="@string/ad_unit_id"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
