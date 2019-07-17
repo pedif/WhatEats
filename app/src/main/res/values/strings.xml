@@ -4,8 +4,8 @@
     <string name="radio_female">Female</string>
     <string name="text_msg">Press the guess button for the food to appear</string>
     <string name="guess">Guess</string>
-    <string name="talk">Talk</string>
-    <string name="no_talk">Don\'t Talk</string>
+    <string name="sound">Sound on</string>
+    <string name="mute">Mute</string>
     <string-array name="foods">
         <item>Cockroach butt cheek kebab with a side of rotten egg salad, an exquisite taste!</item>
 
