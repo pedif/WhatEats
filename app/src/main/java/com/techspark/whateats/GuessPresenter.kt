@@ -13,7 +13,12 @@ class GuessPresenter (private val view: View, private val context: Context) : Co
      */
     override fun guess() {
 
+
         val rand = Random(System.currentTimeMillis()).nextInt(0,foods.size)
         view.guess(foods[rand])
+    }
+
+    override fun stop() {
+        
     }
 }

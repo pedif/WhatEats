@@ -4,6 +4,7 @@ class Contract {
 
     interface Presenter{
         fun guess()
+        fun stop()
     }
 
     interface View{
