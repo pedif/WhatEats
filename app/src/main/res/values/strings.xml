@@ -121,5 +121,7 @@
         <item>F = ma</item>
         <item>E = mc\u00B2</item>
     </string-array>
+
+    <string name="description_background">a Slice of pizza for background</string>
 </resources>
 

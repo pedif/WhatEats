@@ -19,8 +19,6 @@ import java.util.*
 class GuessFragment : Fragment(), Contract.View {
 
     lateinit var presenter: Contract.Presenter
-    lateinit var speaker: TextToSpeech
-    var isSpeakReady = true
 
     /**
      * Displays and reads the message to the user
@@ -28,19 +26,6 @@ class GuessFragment : Fragment(), Contract.View {
     override fun guess(msg: String) {
 
         text_msg.text = msg
-
-        if(switch_talk.isChecked)
-        read(msg)
-
-    }
-
-    private fun read(msg: String) {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            speaker.speak(msg,TextToSpeech.QUEUE_FLUSH,null,UUID.randomUUID().toString())
-        }else{
-            speaker.speak(msg,TextToSpeech.QUEUE_FLUSH,null)
-        }
     }
 
     override fun onCreateView(
@@ -50,10 +35,6 @@ class GuessFragment : Fragment(), Contract.View {
 
 
         presenter = GuessPresenter(this, context!!)
-        speaker = TextToSpeech(context) {
-            if (it == TextToSpeech.ERROR) isSpeakReady = false
-        }
-        speaker.setSpeechRate(0.7f)
 
         return inflater.inflate(R.layout.fragment_guess, container, false)
     }
