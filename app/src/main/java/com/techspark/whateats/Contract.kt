@@ -11,5 +11,6 @@ class Contract {
         fun guess(msg: String)
         fun onStartGuessing()
         fun onStopGuessing()
+        fun useFormula(msg: String)
     }
 }

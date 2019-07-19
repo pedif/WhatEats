@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.fragment_guess.*
 
 
@@ -15,6 +16,7 @@ import kotlinx.android.synthetic.main.fragment_guess.*
  *
  */
 class GuessFragment : Fragment(), Contract.View {
+
 
     lateinit var presenter: Contract.Presenter
     lateinit var player: MediaPlayer
@@ -27,10 +29,15 @@ class GuessFragment : Fragment(), Contract.View {
         text_msg.text = msg
     }
 
+    override fun useFormula(msg: String) {
+
+    }
+    
     override fun onStartGuessing() {
 
         button_guess.isEnabled = false
         player.start()
+
     }
 
     override fun onStopGuessing() {
@@ -39,6 +46,7 @@ class GuessFragment : Fragment(), Contract.View {
         if(player.isPlaying)
             player.pause()
         player.seekTo(0)
+
     }
 
     override fun onCreateView(
