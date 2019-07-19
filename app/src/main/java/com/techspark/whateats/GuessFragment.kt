@@ -37,7 +37,8 @@ class GuessFragment : Fragment(), Contract.View {
 
         button_guess.isEnabled = true
         if(player.isPlaying)
-            player.stop()
+            player.pause()
+        player.seekTo(0)
     }
 
     override fun onCreateView(
