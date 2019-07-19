@@ -1,6 +1,7 @@
 package com.techspark.whateats
 
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ import kotlinx.android.synthetic.main.fragment_guess.*
 class GuessFragment : Fragment(), Contract.View {
 
     lateinit var presenter: Contract.Presenter
+    lateinit var player: MediaPlayer
 
     /**
      * Displays and reads the message to the user
@@ -28,11 +30,14 @@ class GuessFragment : Fragment(), Contract.View {
     override fun onStartGuessing() {
 
         button_guess.isEnabled = false
+        player.start()
     }
 
     override fun onStopGuessing() {
 
         button_guess.isEnabled = true
+        if(player.isPlaying)
+            player.stop()
     }
 
     override fun onCreateView(
@@ -42,6 +47,9 @@ class GuessFragment : Fragment(), Contract.View {
 
 
         presenter = GuessPresenter(this, context!!)
+
+        player = MediaPlayer.create(context, R.raw.track_guess)
+
 
         return inflater.inflate(R.layout.fragment_guess, container, false)
     }
@@ -53,5 +61,9 @@ class GuessFragment : Fragment(), Contract.View {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        player.release()
+    }
 
 }
