@@ -40,7 +40,7 @@
     <Button
             android:text="@string/guess"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/image_button_guess"
+            android:layout_height="wrap_content" android:id="@+id/button_guess"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
