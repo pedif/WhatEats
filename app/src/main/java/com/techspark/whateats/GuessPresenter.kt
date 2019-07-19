@@ -22,7 +22,7 @@ class GuessPresenter(private val view: View, private val context: Context) : Con
 
         view.onStartGuessing()
         val rand = Random(System.currentTimeMillis())
-        guess(rand.nextInt(3,5),rand)
+        guess(15,rand)
     }
 
     /**
@@ -37,15 +37,17 @@ class GuessPresenter(private val view: View, private val context: Context) : Con
 
          if (count > formulaCount) {
              count= 0
-             uiScope.post {
-                 view.guess(foods[rand.nextInt(0, foods.size)])
-                 view.onStopGuessing()
+             Timer().schedule(400) {
+                 uiScope.post {
+                     view.guess(foods[rand.nextInt(0, foods.size)])
+                     view.onStopGuessing()
+                 }
              }
              return
          }
          count++
 
-         Timer().schedule(rand.nextLong(900, 1500)) {
+         Timer().schedule(300) {
              uiScope.post {
                  view.guess(formulas[rand.nextInt(0, formulas.size)])
              }
