@@ -20,9 +20,9 @@ class GuessPresenter(private val view: View, private val context: Context) : Con
      */
     override fun guess() {
 
+        view.onStartGuessing()
         val rand = Random(System.currentTimeMillis())
         guess(rand.nextInt(3,5),rand)
-
     }
 
     /**
@@ -39,6 +39,7 @@ class GuessPresenter(private val view: View, private val context: Context) : Con
              count= 0
              uiScope.post {
                  view.guess(foods[rand.nextInt(0, foods.size)])
+                 view.onStopGuessing()
              }
              return
          }
