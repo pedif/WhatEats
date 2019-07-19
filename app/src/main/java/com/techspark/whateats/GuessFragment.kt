@@ -28,6 +28,14 @@ class GuessFragment : Fragment(), Contract.View {
         text_msg.text = msg
     }
 
+    override fun onStartGuessing() {
+
+    }
+
+    override fun onStopGuessing() {
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

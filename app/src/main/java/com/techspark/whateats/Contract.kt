@@ -9,5 +9,7 @@ class Contract {
 
     interface View{
         fun guess(msg: String)
+        fun onStartGuessing()
+        fun onStopGuessing()
     }
 }
