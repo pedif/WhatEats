@@ -1,6 +1,7 @@
 package com.techspark.whateats
 
 
+import android.animation.Animator
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.TypedValue
@@ -42,14 +43,30 @@ class GuessFragment : Fragment(), Contract.View {
                 .alpha(0f)
                 .scaleXBy(2.5f)
                 .scaleYBy(2.5f)
-                .translationX(((rand.nextFloat()*2)-1)*300f)
-                .translationY(((rand.nextFloat()*2)-1)*300f)
+                .translationX(((rand.nextFloat() * 2) - 1) * 300f)
+                .translationY(((rand.nextFloat() * 2) - 1) * 300f)
                 .setDuration(1000)
+                .setListener(object: Animator.AnimatorListener{
+                    override fun onAnimationRepeat(animation: Animator?) {
+                    }
+
+                    override fun onAnimationEnd(animation: Animator?) {
+                        layout_msg.removeView(this@apply)
+                    }
+
+                    override fun onAnimationCancel(animation: Animator?) {
+                    }
+
+                    override fun onAnimationStart(animation: Animator?) {
+                    }
+
+                })
 
         }
-        formulaTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP,20f)
-        val params = LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT).apply { gravity=Gravity.CENTER
-            }
+        formulaTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
+        val params = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
+            gravity = Gravity.CENTER
+        }
         formulaTextView.layoutParams = params
         formulaTextView.text = msg
         layout_msg.addView(formulaTextView)
@@ -58,7 +75,7 @@ class GuessFragment : Fragment(), Contract.View {
 
     override fun onStartGuessing() {
 
-        text_msg.text =""
+        text_msg.text = ""
         button_guess.isEnabled = false
         player.start()
 
@@ -67,9 +84,10 @@ class GuessFragment : Fragment(), Contract.View {
     override fun onStopGuessing() {
 
         button_guess.isEnabled = true
-        if(player.isPlaying)
+        if (player.isPlaying)
             player.pause()
         player.seekTo(0)
+
 
     }
 
