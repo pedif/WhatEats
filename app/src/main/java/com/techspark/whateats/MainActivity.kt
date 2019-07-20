@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         MobileAds.initialize(this,resources.getString(R.string.ad_id))
 
-        val adReq = AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build()
+        val adReq = AdRequest.Builder().build()
         ad_view.loadAd(adReq)
 
     }
