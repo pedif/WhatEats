@@ -62,6 +62,7 @@ class GuessFragment : Fragment(), Contract.View {
                     }
 
                     override fun onAnimationEnd(animation: Animator?) {
+                        if(activity!=null && !activity?.isFinishing!!)
                         layout_msg.removeView(this@apply)
                     }
 
