@@ -118,10 +118,13 @@
         <item>V - E + F = 2</item>
         <item>a\u00B2 + b\u00B2 = c\u00B2</item>
         <item>dS \u2265 0</item>
-        <item>\u2206P\u2206x \u2265 h/2 </item>
+        <item>\u2206P\u2206x \u2265 h % 2 </item>
         <item>E = hf</item>
         <item>F = ma</item>
         <item>E = mc\u00B2</item>
+        <item>a = \u0394v % \u0394t</item>
+        <item>Q = mc\u0394T</item>
+        <item>E = kQ % r\u00B2</item>
     </string-array>
 
     <string name="description_background">a Slice of pizza for background</string>
