@@ -3,12 +3,16 @@ package com.techspark.whateats
 
 import android.media.MediaPlayer
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.TypedValue
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
+import android.widget.FrameLayout.LayoutParams
+import android.widget.TextView
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_guess.*
+import kotlin.random.Random
 
 
 /**
@@ -31,8 +35,27 @@ class GuessFragment : Fragment(), Contract.View {
 
     override fun useFormula(msg: String) {
 
+        val rand = Random(System.currentTimeMillis())
+
+        val formulaTextView = TextView(context).apply {
+            animate()
+                .alpha(0f)
+                .scaleXBy(2.5f)
+                .scaleYBy(2.5f)
+                .translationX(((rand.nextFloat()*2)-1)*300f)
+                .translationY(((rand.nextFloat()*2)-1)*300f)
+                .setDuration(1000)
+
+        }
+        formulaTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP,20f)
+        val params = LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT).apply { gravity=Gravity.CENTER
+            }
+        formulaTextView.layoutParams = params
+        formulaTextView.text = msg
+        layout_msg.addView(formulaTextView)
+
     }
-    
+
     override fun onStartGuessing() {
 
         button_guess.isEnabled = false
