@@ -58,6 +58,7 @@ class GuessFragment : Fragment(), Contract.View {
 
     override fun onStartGuessing() {
 
+        text_msg.text =""
         button_guess.isEnabled = false
         player.start()
 
