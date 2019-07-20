@@ -17,27 +17,38 @@ import kotlin.random.Random
 
 
 /**
- *
+ *This call implements the view part of the contract
+ * @see Contract
  *
  */
 class GuessFragment : Fragment(), Contract.View {
 
 
+    /**
+     * Holds the presenter of the contract
+     * @see Contract
+     */
     lateinit var presenter: Contract.Presenter
     lateinit var player: MediaPlayer
 
     /**
-     * Displays and reads the message to the user
+     * Displays the message to the user
      */
     override fun guess(msg: String) {
 
         text_msg.text = msg
     }
 
+    /**
+     * Displays an animating formula to the user every time called
+     */
     override fun useFormula(msg: String) {
 
         val rand = Random(System.currentTimeMillis())
-
+        /*
+            Chaining View creation with its animation and removing the
+            view from the parent when the animation is done
+         */
         val formulaTextView = TextView(context).apply {
             animate()
                 .alpha(0f)
@@ -63,6 +74,7 @@ class GuessFragment : Fragment(), Contract.View {
                 })
 
         }
+
         formulaTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
         val params = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
             gravity = Gravity.CENTER
@@ -73,6 +85,10 @@ class GuessFragment : Fragment(), Contract.View {
 
     }
 
+    /**
+     * This method would be called from {@link presenter} when guessing is started
+     * @see GuessPresenter
+     */
     override fun onStartGuessing() {
 
         text_msg.text = ""
@@ -81,6 +97,10 @@ class GuessFragment : Fragment(), Contract.View {
 
     }
 
+    /**
+     * This method would be called from {@link presenter} when guessing is done
+     * @see GuessPresenter
+     */
     override fun onStopGuessing() {
 
         button_guess.isEnabled = true
@@ -101,7 +121,6 @@ class GuessFragment : Fragment(), Contract.View {
 
         player = MediaPlayer.create(context, R.raw.track_guess)
 
-
         return inflater.inflate(R.layout.fragment_guess, container, false)
     }
 
@@ -114,6 +133,8 @@ class GuessFragment : Fragment(), Contract.View {
 
     override fun onStop() {
         super.onStop()
+
+        //Release the player and stop the presenter
         player.release()
         presenter.stop()
     }
