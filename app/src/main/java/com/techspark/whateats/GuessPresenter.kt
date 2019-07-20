@@ -37,7 +37,7 @@ class GuessPresenter(private val view: View, private val context: Context) : Con
 
          if (count > formulaCount) {
              count= 0
-             Timer().schedule(400) {
+             Timer().schedule(1000) {
                  uiScope.post {
                      view.guess(foods[rand.nextInt(0, foods.size)])
                      view.onStopGuessing()
