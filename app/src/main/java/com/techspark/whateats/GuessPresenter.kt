@@ -9,8 +9,14 @@ import kotlin.random.Random
 
 /**
  * This class implements the presenter part of the contract
+ * @see Contract
  */
 class GuessPresenter(private val view: View, context: Context) : Contract.Presenter {
+
+    /**
+     * times a random formula needs to be shown
+     */
+    private val formulaCount = 15
 
     /**
      * Contains a list of all the foods which are going to be guessed from
@@ -37,23 +43,30 @@ class GuessPresenter(private val view: View, context: Context) : Contract.Presen
      */
     override fun guess() {
 
+        /*
+            Signal the beginning of guessing process to the view
+            and start the process
+         */
         view.onStartGuessing()
         val rand = Random(System.currentTimeMillis())
-        guess(15, rand)
+        guess(rand)
     }
 
     /**
      * Counts the times formulas are displayed to the user before displaying the result
      */
-    var count = 0
+    private var count = 0
 
     /**
      * Recursive method which would display a formula formulaCount times then displays the result and returns
-     * @param formulaCount times a random formula needs to be shown
      * @param rand Random generator to be used for random guessing
      */
-    private fun guess(formulaCount: Int, rand: Random) {
+    private fun guess(rand: Random) {
 
+        /*
+         * Guess a random food when a certain amount of formulas
+         * are used, signal the ending of guessing to the view and return. Otherwise Guess a formula and repeat the process
+         */
         if (count > formulaCount) {
             count = 0
             Timer().schedule(1000) {
@@ -74,12 +87,12 @@ class GuessPresenter(private val view: View, context: Context) : Contract.Presen
             uiScope.post {
                 view.useFormula(formulas[rand.nextInt(0, formulas.size)])
             }
-            guess(formulaCount, rand)
+            guess(rand)
         }
     }
 
     /**
-     * Sets the @see #hasStopped flag to end all threads
+     * Sets the  {@Link hasStopped} flag to end all threads
      */
     override fun stop() {
         hasStopped=true
