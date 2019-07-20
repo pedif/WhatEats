@@ -49,7 +49,7 @@ class GuessPresenter(private val view: View, private val context: Context) : Con
 
          Timer().schedule(300) {
              uiScope.post {
-                 view.guess(formulas[rand.nextInt(0, formulas.size)])
+                 view.useFormula(formulas[rand.nextInt(0, formulas.size)])
              }
              guess(formulaCount,rand)
          }
