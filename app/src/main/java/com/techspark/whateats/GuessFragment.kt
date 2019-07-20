@@ -97,6 +97,7 @@ class GuessFragment : Fragment(), Contract.View {
     override fun onStop() {
         super.onStop()
         player.release()
+        presenter.stop()
     }
 
 }
