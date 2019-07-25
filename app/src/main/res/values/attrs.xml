@@ -2,4 +2,5 @@
 <resources>
     <string name="ad_id">ca-app-pub-9500612318891630~4136140303</string>
     <string name="ad_unit_id">ca-app-pub-9500612318891630/4874506902</string>
+    <string name="ad_publisher_id">pub-9500612318891630</string>
 </resources>
