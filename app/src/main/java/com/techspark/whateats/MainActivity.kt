@@ -1,14 +1,12 @@
 package com.techspark.whateats
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.google.ads.consent.*
 import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
-import com.google.android.gms.ads.mediation.admob.AdMobExtras
 import java.net.URL
 
 
@@ -48,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         val extras = Bundle()
         extras.putString("npa", adType.toString())
         val adReq = AdRequest.Builder()
-            .addNetworkExtrasBundle(AdMobAdapter::class.java, extras).addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+            .addNetworkExtrasBundle(AdMobAdapter::class.java, extras)
             .build()
         ad_view.loadAd(adReq)
     }
