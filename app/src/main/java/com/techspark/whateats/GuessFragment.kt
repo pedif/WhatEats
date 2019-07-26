@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout.LayoutParams
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.crashlytics.android.Crashlytics
 import kotlinx.android.synthetic.main.fragment_guess.*
 import kotlin.random.Random
 
@@ -95,9 +96,12 @@ class GuessFragment : Fragment(), Contract.View {
 
         text_msg.text = ""
         button_guess.isEnabled = false
-        if (isPlayerReady)
-            player.start()
-
+        try {
+            if (isPlayerReady)
+                player.start()
+        } catch (e: Exception) {
+            Crashlytics.logException(e)
+        }
     }
 
     /**
@@ -107,10 +111,13 @@ class GuessFragment : Fragment(), Contract.View {
     override fun onStopGuessing() {
 
         button_guess.isEnabled = true
-        if (player.isPlaying)
-            player.pause()
-        player.seekTo(0)
-
+        try {
+            if (player.isPlaying)
+                player.pause()
+            player.seekTo(0)
+        } catch (e: Exception) {
+            Crashlytics.logException(e)
+        }
 
     }
 
@@ -119,10 +126,15 @@ class GuessFragment : Fragment(), Contract.View {
         savedInstanceState: Bundle?
     ): View? {
 
-
         presenter = GuessPresenter(this, context!!)
 
-        player = MediaPlayer.create(context, R.raw.track_guess).apply { setOnPreparedListener { isPlayerReady = true } }
+        player = MediaPlayer.create(context, R.raw.track_guess).apply {
+            setOnPreparedListener { isPlayerReady = true }
+            setOnErrorListener { mp, what, extra ->
+                isPlayerReady = false
+                return@setOnErrorListener true
+            }
+        }
 
 
 
