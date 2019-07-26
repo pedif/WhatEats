@@ -1,5 +1,6 @@
 package com.techspark.whateats
 
+import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.ads.consent.*
@@ -16,29 +17,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val consentInformation = ConsentInformation.getInstance(this)
-        val publisherIds = arrayOf(getString(R.string.ad_publisher_id))
-        consentInformation.requestConsentInfoUpdate(publisherIds, object : ConsentInfoUpdateListener {
-            override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
 
-                if (!consentInformation.isRequestLocationInEeaOrUnknown)
-                    loadAd(0)
-                else {
-                    when (consentStatus) {
-                        ConsentStatus.PERSONALIZED -> loadAd(0)
-                        ConsentStatus.NON_PERSONALIZED -> loadAd(1)
-                        else -> {
-                            displayConsentForm()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            val consentInformation = ConsentInformation.getInstance(this)
+            val publisherIds = arrayOf(getString(R.string.ad_publisher_id))
+            consentInformation.requestConsentInfoUpdate(publisherIds, object : ConsentInfoUpdateListener {
+                override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
+
+                    if (!consentInformation.isRequestLocationInEeaOrUnknown)
+                        loadAd(0)
+                    else {
+                        when (consentStatus) {
+                            ConsentStatus.PERSONALIZED -> loadAd(0)
+                            ConsentStatus.NON_PERSONALIZED -> loadAd(1)
+                            else -> {
+                                displayConsentForm()
+                            }
                         }
                     }
                 }
-            }
 
-            override fun onFailedToUpdateConsentInfo(errorDescription: String) {
-            }
-        })
-
-
+                override fun onFailedToUpdateConsentInfo(errorDescription: String) {
+                }
+            })
+        }
     }
 
     fun loadAd(adType: Int) {
