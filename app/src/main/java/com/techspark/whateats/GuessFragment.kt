@@ -30,6 +30,7 @@ class GuessFragment : Fragment(), Contract.View {
      */
     lateinit var presenter: Contract.Presenter
     lateinit var player: MediaPlayer
+    var isPlayerReady = false
 
     /**
      * Displays the message to the user
@@ -57,13 +58,13 @@ class GuessFragment : Fragment(), Contract.View {
                 .translationX(((rand.nextFloat() * 2) - 1) * 300f)
                 .translationY(((rand.nextFloat() * 2) - 1) * 300f)
                 .setDuration(1000)
-                .setListener(object: Animator.AnimatorListener{
+                .setListener(object : Animator.AnimatorListener {
                     override fun onAnimationRepeat(animation: Animator?) {
                     }
 
                     override fun onAnimationEnd(animation: Animator?) {
-                        if(activity!=null && !activity?.isFinishing!!)
-                        layout_msg.removeView(this@apply)
+                        if (activity != null && !activity?.isFinishing!!)
+                            layout_msg.removeView(this@apply)
                     }
 
                     override fun onAnimationCancel(animation: Animator?) {
@@ -94,7 +95,8 @@ class GuessFragment : Fragment(), Contract.View {
 
         text_msg.text = ""
         button_guess.isEnabled = false
-        player.start()
+        if (isPlayerReady)
+            player.start()
 
     }
 
@@ -120,7 +122,9 @@ class GuessFragment : Fragment(), Contract.View {
 
         presenter = GuessPresenter(this, context!!)
 
-        player = MediaPlayer.create(context, R.raw.track_guess)
+        player = MediaPlayer.create(context, R.raw.track_guess).apply { setOnPreparedListener { isPlayerReady = true } }
+
+
 
         return inflater.inflate(R.layout.fragment_guess, container, false)
     }
