@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
     private fun displayConsentForm() {
         consentForm = ConsentForm.Builder(
             this,
-            URL("https://technolanddomain.blogspot.com/p/privacy-policy-pedif-built-whateats-app.html")
+            URL(getString(R.string.url_privacy))
         )
             .withListener(object : ConsentFormListener() {
                 override fun onConsentFormOpened() {
